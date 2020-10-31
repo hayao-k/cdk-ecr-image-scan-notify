@@ -323,7 +323,7 @@
     "@aws-cdk/region-info" "1.71.0"
     constructs "^3.2.0"
 
-"@aws-cdk/aws-events-targets@*":
+"@aws-cdk/aws-events-targets@^1.71.0":
   version "1.71.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events-targets/-/aws-events-targets-1.71.0.tgz#4cb482de4cb682a08e8002e55e41e6472213299b"
   integrity sha512-EeTQSEz+yaamyRzgNIymJdZEf+34+g0nIDJBWNL1sUJ3yU9QyJX76uL4/9DYoSaik58yjFNPA9LrjzYht6sYJg==
