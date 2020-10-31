@@ -13,6 +13,11 @@ dist
 /coverage
 /test
 /.eslintrc.json
+cdk.out
+cdk.context.json
+yarn-error.log
+coverage
+images
 !/lib
 !/lib/**/*.js
 !/lib/**/*.d.ts

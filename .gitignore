@@ -40,6 +40,10 @@ jspm_packages/
 /coverage
 .jsii
 tsconfig.json
+cdk.out
+cdk.context.json
+yarn-error.log
+coverage
 !/package.json
 !/.npmignore
 !/LICENSE
@@ -49,10 +53,11 @@ tsconfig.json
 !/.github/workflows/build.yml
 !/.github/workflows/release.yml
 !/.mergify.yml
-!/.github/dependabot.yml
+!/.github/workflows/projenupgrade.yml
 !/.github/pull_request_template.md
 !/src
 !/tsconfig.jest.json
 !/test
 !/.eslintrc.json
 !/API.md
+!/.github/workflows/projenyarnupgrade.yml
