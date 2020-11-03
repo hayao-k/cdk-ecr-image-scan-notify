@@ -4,18 +4,18 @@
 
 Name|Description
 ----|-----------
-[EcrImageScanNorify](#cdk-ecr-image-scan-notify-ecrimagescannorify)|*No description*
+[EcrImageScanNotify](#cdk-ecr-image-scan-notify-ecrimagescannotify)|*No description*
 
 
 **Structs**
 
 Name|Description
 ----|-----------
-[EcrImageScanNorifyProps](#cdk-ecr-image-scan-notify-ecrimagescannorifyprops)|*No description*
+[EcrImageScanNotifyProps](#cdk-ecr-image-scan-notify-ecrimagescannotifyprops)|*No description*
 
 
 
-## class EcrImageScanNorify 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannorify"></a>
+## class EcrImageScanNotify 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannotify"></a>
 
 
 
@@ -28,19 +28,19 @@ __Extends__: [Construct](#aws-cdk-core-construct)
 
 
 ```ts
-new EcrImageScanNorify(scope: Construct, id: string, props: EcrImageScanNorifyProps)
+new EcrImageScanNotify(scope: Construct, id: string, props: EcrImageScanNotifyProps)
 ```
 
 * **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
-* **props** (<code>[EcrImageScanNorifyProps](#cdk-ecr-image-scan-notify-ecrimagescannorifyprops)</code>)  *No description*
+* **props** (<code>[EcrImageScanNotifyProps](#cdk-ecr-image-scan-notify-ecrimagescannotifyprops)</code>)  *No description*
   * **channel** (<code>string</code>)  *No description* 
   * **webhookUrl** (<code>string</code>)  *No description* 
 
 
 
 
-## struct EcrImageScanNorifyProps 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannorifyprops"></a>
+## struct EcrImageScanNotifyProps 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannotifyprops"></a>
 
 
 

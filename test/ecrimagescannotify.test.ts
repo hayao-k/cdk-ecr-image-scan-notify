@@ -1,12 +1,12 @@
 import * as cdk from '@aws-cdk/core';
-import { EcrImageScanNorify } from '../src/index';
+import { EcrImageScanNotify } from '../src/index';
 import '@aws-cdk/assert/jest';
 
 
 test('create app', () => {
   const mockApp = new cdk.App();
   const stack = new cdk.Stack(mockApp);
-  new EcrImageScanNorify(stack, 'Testtask', {
+  new EcrImageScanNotify(stack, 'Testtask', {
     webhookUrl: 'https://webhook.example.com',
     channel: 'event_channel',
   });

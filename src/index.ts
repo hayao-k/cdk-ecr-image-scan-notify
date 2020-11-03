@@ -5,13 +5,13 @@ import * as iam from '@aws-cdk/aws-iam';
 import * as _lambda from '@aws-cdk/aws-lambda';
 import * as cdk from '@aws-cdk/core';
 
-export interface EcrImageScanNorifyProps {
+export interface EcrImageScanNotifyProps {
   readonly webhookUrl: string;
   readonly channel: string;
 }
 
-export class EcrImageScanNorify extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, props: EcrImageScanNorifyProps) {
+export class EcrImageScanNotify extends cdk.Construct {
+  constructor(scope: cdk.Construct, id: string, props: EcrImageScanNotifyProps) {
     super(scope, id);
     const lambdaFun = new _lambda.Function(this, 'lambda_fun', {
       handler: 'lambda_function.lambda_handler',

@@ -1,14 +1,14 @@
 const { AwsCdkConstructLibrary, GithubWorkflow } = require('projen');
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
-const PROJECT_DESCRIPTION = 'A XXX JSII construct lib for AWS CDK';
+const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
 const AUTOMATION_TOKEN = 'AUTOMATION_GITHUB_TOKEN';
 const CDK_VERSION = '1.71.0';
 const project = new AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repository: 'https://github.com/hayao-k/cdk-ecr-image-scan-notify.git',
-  authorAddress: 'user@domain.com',
+  authorAddress: 'hayaok333@gmail.com',
   authorName: 'hayao-k',
   keywords: ['aws', 'cdk', 'ecr-image', 'scan-notify'],
   dependabot: false,
