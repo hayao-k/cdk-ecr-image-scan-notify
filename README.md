@@ -19,12 +19,12 @@ Usage
 
 ```ts
 import * as cdk from '@aws-cdk/core';
-import { EcrImageScanNotify } from './index';
+import { EcrImageScanNotify } from 'cdk-ecr-image-scan-notify';
 
 const mockApp = new cdk.App();
 const stack = new cdk.Stack(mockApp, '<your-stack-name>');
 
-new EcrImageScanNorify(stack, 'ecrimagescan', {
+new EcrImageScanNotify(stack, 'ecr-image-scan-notify', {
   webhookUrl: '<your-incoming-webhook-url>',
   channel: '<your-slack-channel-name>',
 });
