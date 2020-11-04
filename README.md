@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/cdk-ecr-image-scan-notify.svg)](https://badge.fury.io/js/cdk-ecr-image-scan-notify)
 [![PyPI version](https://badge.fury.io/py/cdk-ecr-image-scan-notify.svg)](https://badge.fury.io/py/cdk-ecr-image-scan-notify)
-![Release](https://github.com/guan840912/cdk-ecr-image-scan-notify/workflows/Release/badge.svg)
+![Release](https://github.com/hayao-k/cdk-ecr-image-scan-notify/workflows/Release/badge.svg)
 
 # cdk-ecr-image-scan-notify
 cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results. 
@@ -32,6 +32,34 @@ new EcrImageScanNotify(stack, 'ecr-image-scan-notify', {
   webhookUrl: '<your-incoming-webhook-url>',
   channel: '<your-slack-channel-name>',
 });
+```
+
+Deploy!
+
+```
+$ cdk deploy
+```
+
+### Python
+Installation
+
+```
+$ pip install cdk-ecr-image-scan-notify
+```
+
+Usage
+
+```py
+import aws_cdk.core as cdk
+from cdk_ecr_image_scan_notify import EcrImageScanNotify 
+
+app = cdk.App()
+stack = cdk.Stack(app, "<your-stack-name>", env={'region': 'ap-northeast-1'})
+
+EcrImageScanNotify(stack, "EcrImageScanNotify",
+    webhook_url = '<your-incoming-webhook-url>',
+    channel =  '<your-slack-channel-name>',
+)
 ```
 
 Deploy!
