@@ -1,9 +1,9 @@
-const { AwsCdkConstructLibrary, GithubWorkflow } = require('projen');
+const { AwsCdkConstructLibrary } = require('projen');
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
 const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
 const AUTOMATION_TOKEN = 'AUTOMATION_GITHUB_TOKEN';
-const CDK_VERSION = '1.71.0';
+const CDK_VERSION = '1.75.0';
 const project = new AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
@@ -18,15 +18,7 @@ const project = new AwsCdkConstructLibrary({
   projenUpgradeSecret: AUTOMATION_TOKEN,
   stability: 'experimental',
   cdkVersion: CDK_VERSION,
-  deps: [
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-lambda',
-    '@aws-cdk/core',
-    '@aws-cdk/aws-ecr',
-    '@aws-cdk/aws-events',
-    '@aws-cdk/aws-events-targets',
-  ],
-  peerDeps: [
+  cdkDependencies: [
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-lambda',
     '@aws-cdk/core',
@@ -39,7 +31,7 @@ const project = new AwsCdkConstructLibrary({
     module: 'cdk_ecr_image_scan_notify',
   },
 });
-const workflow = new GithubWorkflow(project, 'ProjenYarnUpgrade');
+workflow = project.github.addWorkflow('ProjenYarnUpgrade');
 
 workflow.on({
   schedule: [{
