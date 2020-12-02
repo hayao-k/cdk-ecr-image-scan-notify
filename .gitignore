@@ -47,6 +47,7 @@ cdk.out
 cdk.context.json
 yarn-error.log
 coverage
+!/.projen/tasks.json
 !/package.json
 !/.npmignore
 !/LICENSE
