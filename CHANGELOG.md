@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.53](https://github.com/hayao-k/cdk-ecr-image-scan-notify/compare/v0.0.52...v0.0.53) (2020-12-25)
+
 ### 0.0.52 (2020-12-24)
 
 
