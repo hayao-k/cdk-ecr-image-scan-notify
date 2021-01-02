@@ -8,7 +8,10 @@ junit.xml
 /coverage
 /test
 /.mergify.yml
+!/lib
 /src
+!/lib/**/*.js
+!/lib/**/*.d.ts
 dist
 /tsconfig.json
 /.github
@@ -16,12 +19,9 @@ dist
 /.idea
 /tsconfig.jest.json
 /.eslintrc.json
+!.jsii
 cdk.out
 cdk.context.json
 yarn-error.log
 coverage
 images
-!/lib
-!/lib/**/*.js
-!/lib/**/*.d.ts
-!.jsii
