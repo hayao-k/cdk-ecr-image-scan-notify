@@ -2,7 +2,7 @@ const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
 const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
-const CDK_VERSION = '1.110.0';
+const CDK_VERSION = '1.125.0';
 const project = new AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
@@ -16,6 +16,7 @@ const project = new AwsCdkConstructLibrary({
   cdkVersion: CDK_VERSION,
   autoDetectBin: false,
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
     workflowOptions: {
       labels: ['auto-approve'],
       secret: 'AUTOMATION_GITHUB_TOKEN',

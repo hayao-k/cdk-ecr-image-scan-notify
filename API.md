@@ -1,56 +1,70 @@
-# API Reference
+# API Reference <a name="API Reference"></a>
 
-**Classes**
+## Constructs <a name="Constructs"></a>
 
-Name|Description
-----|-----------
-[EcrImageScanNotify](#cdk-ecr-image-scan-notify-ecrimagescannotify)|*No description*
+### EcrImageScanNotify <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify"></a>
 
+#### Initializers <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify.Initializer"></a>
 
-**Structs**
+```typescript
+import { EcrImageScanNotify } from 'cdk-ecr-image-scan-notify'
 
-Name|Description
-----|-----------
-[EcrImageScanNotifyProps](#cdk-ecr-image-scan-notify-ecrimagescannotifyprops)|*No description*
-
-
-
-## class EcrImageScanNotify 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannotify"></a>
-
-
-
-__Implements__: [IConstruct](#constructs-iconstruct), [IConstruct](#aws-cdk-core-iconstruct), [IConstruct](#constructs-iconstruct), [IDependable](#aws-cdk-core-idependable)
-__Extends__: [Construct](#aws-cdk-core-construct)
-
-### Initializer
-
-
-
-
-```ts
 new EcrImageScanNotify(scope: Construct, id: string, props: EcrImageScanNotifyProps)
 ```
 
-* **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
-* **id** (<code>string</code>)  *No description*
-* **props** (<code>[EcrImageScanNotifyProps](#cdk-ecr-image-scan-notify-ecrimagescannotifyprops)</code>)  *No description*
-  * **channel** (<code>string</code>)  *No description* 
-  * **webhookUrl** (<code>string</code>)  *No description* 
+##### `scope`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify.parameter.scope"></a>
+
+- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+
+---
+
+##### `id`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify.parameter.id"></a>
+
+- *Type:* `string`
+
+---
+
+##### `props`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify.parameter.props"></a>
+
+- *Type:* [`cdk-ecr-image-scan-notify.EcrImageScanNotifyProps`](#cdk-ecr-image-scan-notify.EcrImageScanNotifyProps)
+
+---
 
 
 
 
-## struct EcrImageScanNotifyProps 🔹 <a id="cdk-ecr-image-scan-notify-ecrimagescannotifyprops"></a>
 
+## Structs <a name="Structs"></a>
 
+### EcrImageScanNotifyProps <a name="cdk-ecr-image-scan-notify.EcrImageScanNotifyProps"></a>
 
+#### Initializer <a name="[object Object].Initializer"></a>
 
+```typescript
+import { EcrImageScanNotifyProps } from 'cdk-ecr-image-scan-notify'
 
+const ecrImageScanNotifyProps: EcrImageScanNotifyProps = { ... }
+```
 
-Name | Type | Description 
------|------|-------------
-**channel**🔹 | <code>string</code> | <span></span>
-**webhookUrl**🔹 | <code>string</code> | <span></span>
+##### `channel`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotifyProps.property.channel"></a>
+
+```typescript
+public readonly channel: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `webhookUrl`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotifyProps.property.webhookUrl"></a>
+
+```typescript
+public readonly webhookUrl: string;
+```
+
+- *Type:* `string`
+
+---
 
 
 

@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/cdk-ecr-image-scan-notify.svg)](https://badge.fury.io/js/cdk-ecr-image-scan-notify)
 [![PyPI version](https://badge.fury.io/py/cdk-ecr-image-scan-notify.svg)](https://badge.fury.io/py/cdk-ecr-image-scan-notify)
-![Release](https://github.com/hayao-k/cdk-ecr-image-scan-notify/workflows/Release/badge.svg)
+![Release](https://github.com/hayao-k/cdk-ecr-image-scan-notify/workflows/release/badge.svg)
 
 # cdk-ecr-image-scan-notify
 cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results. 
