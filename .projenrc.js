@@ -1,9 +1,9 @@
-const { AwsCdkConstructLibrary } = require('projen');
+const { awscdk } = require('projen');
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
 const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
-const CDK_VERSION = '1.125.0';
-const project = new AwsCdkConstructLibrary({
+const CDK_VERSION = '1.134.0';
+const project = new awscdk.AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repository: 'https://github.com/hayao-k/cdk-ecr-image-scan-notify.git',
