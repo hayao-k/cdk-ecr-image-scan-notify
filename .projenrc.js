@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
 const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
-const CDK_VERSION = '1.134.0';
+const CDK_VERSION = '1.135.0';
 const project = new awscdk.AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
@@ -29,6 +29,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkDependencies: [
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-lambda',
+    '@aws-cdk/assertions',
     '@aws-cdk/core',
     '@aws-cdk/aws-ecr',
     '@aws-cdk/aws-events',
@@ -38,6 +39,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: PROJECT_NAME,
     module: 'cdk_ecr_image_scan_notify',
   },
+  workflowNodeVersion: '^14.17.0',
 });
 
 

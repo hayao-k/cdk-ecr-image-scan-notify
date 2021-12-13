@@ -1,6 +1,6 @@
+import * as assertions from '@aws-cdk/assertions';
 import * as cdk from '@aws-cdk/core';
 import { EcrImageScanNotify } from '../src/index';
-import '@aws-cdk/assert/jest';
 
 
 test('create app', () => {
@@ -10,7 +10,7 @@ test('create app', () => {
     webhookUrl: 'https://webhook.example.com',
     channel: 'event_channel',
   });
-  expect(stack).toHaveResource('AWS::Lambda::Function', {
+  assertions.Template.fromStack(stack).hasResourceProperties('AWS::Lambda::Function', {
     Environment: {
       Variables: {
         WEBHOOK_URL: 'https://webhook.example.com',
@@ -18,8 +18,8 @@ test('create app', () => {
       },
     },
   });
-  expect(stack).toHaveResource('AWS::IAM::Role');
-  expect(stack).toHaveResource('AWS::IAM::Policy', {
+  assertions.Template.fromStack(stack).findResources('AWS::IAM::Role');
+  assertions.Template.fromStack(stack).hasResourceProperties('AWS::IAM::Policy', {
     PolicyDocument: {
       Statement: [
         {
