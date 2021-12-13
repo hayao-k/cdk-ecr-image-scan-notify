@@ -65,7 +65,7 @@ def get_params(scan_result):
                     scan_result['imageTags'][0]}''',
                 'title_link': f'''https://console.aws.amazon.com/ecr/repositories/{
                     scan_result['repositoryName']}/image/{
-                    scan_result['imageDigest']}/scan-results?region={region}''',
+                    scan_result['imageDigest']}/scan-results/?region={region}''',
                 'text': f'''{description}\nImage Scan Completed at {
                     complete_at}\nVulnerability Source Updated at {source_update_at}''',
                 'fields': [
