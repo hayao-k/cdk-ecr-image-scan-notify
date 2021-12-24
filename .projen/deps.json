@@ -89,37 +89,27 @@
     },
     {
       "name": "@aws-cdk/assertions",
-      "version": "^1.135.0",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-ecr",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-events-targets",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-events",
-      "version": "^1.135.0",
-      "type": "peer"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-lambda",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "peer"
     },
     {
@@ -129,47 +119,37 @@
     },
     {
       "name": "@aws-cdk/assertions",
-      "version": "^1.135.0",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-ecr",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-events-targets",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-events",
-      "version": "^1.135.0",
-      "type": "runtime"
-    },
-    {
-      "name": "@aws-cdk/aws-iam",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-lambda",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/assert",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "test"
     },
     {
       "name": "@aws-cdk/assertions",
-      "version": "^1.135.0",
+      "version": "^1.137.0",
       "type": "test"
     }
   ],

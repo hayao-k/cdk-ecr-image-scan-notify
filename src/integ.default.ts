@@ -6,5 +6,4 @@ const stack = new cdk.Stack(mockApp, 'testing-stack');
 
 new EcrImageScanNotify(stack, 'ecr-image-scan-notify', {
   webhookUrl: 'https://webhook.example.com',
-  channel: '#event_channel',
 });
