@@ -1,8 +1,6 @@
 """
-This is a sample function to send ECR Image ScanFindings to slack.
-I am not responsible for any trouble that may occur.
+This is a sample function to send ECR Image Scan findings severity counts to slack.
 Environment variables:
-    CHANNEL: Slack channel name
     WEBHOOK_URL: Incoming Webhook URL
 """
 
@@ -12,8 +10,7 @@ from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 import json
 import os
-from botocore.exceptions import ClientError
-import boto3
+import re
 
 logger = getLogger()
 logger.setLevel(INFO)
@@ -28,46 +25,47 @@ def get_properties(finding_counts):
         properties = {'color': 'good', 'icon': ':green_heart:'}
     return properties
 
-def get_params(scan_result):
+def get_repo_name(repo_arn):
+    """Return repository name from ARN"""
+    result = re.match('.*?(/.+).*', repo_arn)
+    repo_name = result.group(1)
+    return repo_name[1:]
+
+def get_params(event):
     """Slack message formatting"""
-    region = os.environ['AWS_DEFAULT_REGION']
-    channel = os.environ['CHANNEL']
     severity_list = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMAL', 'UNDEFINED']
-    finding_counts = scan_result['imageScanFindingsSummary']['findingSeverityCounts']
+    finding_counts = event['detail']['finding-severity-counts']
 
     for severity in severity_list:
         finding_counts.setdefault(severity, 0)
 
-    message = f"*ECR Image Scan findings | {region} | Account:{scan_result['registryId']}*"
-    description = scan_result['imageScanStatus']['description']
     text_properties = get_properties(finding_counts)
 
+    if event['source'] == "aws.inspector2":
+        scan_type = "Enhanced scanning"
+        repo_name = get_repo_name(event['detail']['repository-name'])
+    else:
+        scan_type = "Basic scanning"
+        repo_name = event['detail']['repository-name']
+
     complete_at = datetime.strftime(
-        scan_result['imageScanFindingsSummary']['imageScanCompletedAt'],
-        '%Y-%m-%d %H:%M:%S %Z'
-    )
-    source_update_at = datetime.strftime(
-        scan_result['imageScanFindingsSummary']['vulnerabilitySourceUpdatedAt'],
-        '%Y-%m-%d %H:%M:%S %Z'
-    )
+        datetime.strptime(event['time'], '%Y-%m-%dT%H:%M:%S%z'), '%Y-%m-%d %H:%M:%S %Z')
 
     slack_message = {
         'username': 'Amazon ECR',
-        'channels': channel,
         'icon_emoji': ':ecr:',
-        'text': message,
+        'text': f'''*ECR Image Scan findings | {event['region']} | Account:{event['account']}*''',
         'attachments': [
             {
                 'fallback': 'AmazonECR Image Scan Findings Description.',
                 'color': text_properties['color'],
-                'title': f'''{text_properties['icon']} {
-                    scan_result['repositoryName']}:{
-                    scan_result['imageTags'][0]}''',
-                'title_link': f'''https://console.aws.amazon.com/ecr/repositories/{
-                    scan_result['repositoryName']}/image/{
-                    scan_result['imageDigest']}/scan-results/?region={region}''',
-                'text': f'''{description}\nImage Scan Completed at {
-                    complete_at}\nVulnerability Source Updated at {source_update_at}''',
+                'title': f'''{text_properties['icon']} {repo_name}:{
+                    event['detail']['image-tags'][0]}''',
+                'title_link': f'''https://console.aws.amazon.com/ecr/repositories/private/{
+                    event['account']}/{repo_name}/image/{
+                    event['detail']['image-digest']}/scan-results/?region={event['region']}''',
+                'text': f'''*Scan Type:* {scan_type}\n*Scan Status:* {
+                    event['detail']['scan-status']}\n*Timestamp:* {complete_at}''',
                 'fields': [
                     {'title': 'Critical', 'value': finding_counts['CRITICAL'], 'short': True},
                     {'title': 'High', 'value': finding_counts['HIGH'], 'short': True},
@@ -81,27 +79,38 @@ def get_params(scan_result):
     }
     return slack_message
 
-def get_findings(detail):
-    """Returns the image scan findings summary"""
-    ecr = boto3.client('ecr')
-    try:
-        response = ecr.describe_images(
-            repositoryName=detail['repository-name'],
-            imageIds=[
-                {'imageDigest': detail['image-digest']}
-            ]
-        )
-    except ClientError as err:
-        logger.error("Request failed: %s", err.response['Error']['Message'])
-    else:
-        return response['imageDetails'][0]
+def get_error_params(event):
+    """Slack error message formatting"""
+    slack_message = {
+        'username': 'Amazon ECR',
+        'icon_emoji': ':ecr:',
+        'text': f'''*ECR Image Scan findings | {event['region']} | Account:{event['account']}*''',
+        'attachments': [
+            {
+                'fallback': 'AmazonECR Image Scan Findings Description.',
+                'color': 'danger',
+                'title': f''':red_circle: {event['detail']['repository-name']}:{
+                    event['detail']['image-tags'][0]}''',
+                'title_link': f'''https://console.aws.amazon.com/ecr/repositories/private/{
+                    event['account']}/{event['detail']['repository-name']}/image/{
+                    event['detail']['image-digest']}/details/?region={event['region']}''',
+                'text': f'''*Scan Status:* {event['detail']['scan-status']}''',
+            }
+        ]
+    }
+    return slack_message
 
 def lambda_handler(event, context):
-    """AWS Lambda Function to send ECR Image Scan Findings to Slack"""
+    """AWS Lambda Function to send ECR Image Scan findings severity counts to Slack"""
     response = 1
-    scan_result = get_findings(event['detail'])
-    slack_message = get_params(scan_result)
+
+    if event['detail']['scan-status'] == 'FAILED':
+        slack_message = get_error_params(event)
+    else:
+        slack_message = get_params(event)
+
     req = Request(os.environ['WEBHOOK_URL'], json.dumps(slack_message).encode('utf-8'))
+
     try:
         with urlopen(req) as res:
             res.read()

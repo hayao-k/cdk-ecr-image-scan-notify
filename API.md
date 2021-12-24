@@ -46,16 +46,6 @@ import { EcrImageScanNotifyProps } from 'cdk-ecr-image-scan-notify'
 const ecrImageScanNotifyProps: EcrImageScanNotifyProps = { ... }
 ```
 
-##### `channel`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotifyProps.property.channel"></a>
-
-```typescript
-public readonly channel: string;
-```
-
-- *Type:* `string`
-
----
-
 ##### `webhookUrl`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotifyProps.property.webhookUrl"></a>
 
 ```typescript
