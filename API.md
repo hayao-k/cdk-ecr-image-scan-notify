@@ -14,7 +14,7 @@ new EcrImageScanNotify(scope: Construct, id: string, props: EcrImageScanNotifyPr
 
 ##### `scope`<sup>Required</sup> <a name="cdk-ecr-image-scan-notify.EcrImageScanNotify.parameter.scope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
