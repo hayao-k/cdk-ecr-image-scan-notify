@@ -32,7 +32,7 @@ $ yarn add cdk-ecr-image-scan-notify
 Usage
 
 ```ts
-import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
 import { EcrImageScanNotify } from 'cdk-ecr-image-scan-notify';
 
 const mockApp = new cdk.App();
@@ -59,7 +59,7 @@ $ pip install cdk-ecr-image-scan-notify
 Usage
 
 ```py
-import aws_cdk.core as cdk
+import aws_cdk as cdk
 from cdk_ecr_image_scan_notify import EcrImageScanNotify 
 
 app = cdk.App()
