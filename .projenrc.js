@@ -2,40 +2,32 @@ const { awscdk } = require('projen');
 
 const PROJECT_NAME = 'cdk-ecr-image-scan-notify';
 const PROJECT_DESCRIPTION = 'cdk-ecr-image-scan-notify is an AWS CDK construct library that notify the slack channel of Amazon ECR image scan results';
-const CDK_VERSION = '1.137.0';
 const project = new awscdk.AwsCdkConstructLibrary({
-  name: PROJECT_NAME,
-  description: PROJECT_DESCRIPTION,
-  repository: 'https://github.com/hayao-k/cdk-ecr-image-scan-notify.git',
-  authorAddress: 'hayaok333@gmail.com',
-  authorName: 'hayao-k',
-  keywords: ['aws', 'cdk', 'ecr-image', 'scan-notify'],
+  author: 'hayao-k',
+  authorAddress: '30886141+hayao-k@users.noreply.github.com',
+  autoApproveOptions: {
+    allowedUsernames: ['neilkuan', 'hayao-k'],
+  },
+  autoDetectBin: false,
+  cdkVersion: '2.31.1',
   compat: true,
   defaultReleaseBranch: 'main',
-  stability: 'experimental',
-  cdkVersion: CDK_VERSION,
-  autoDetectBin: false,
+  description: PROJECT_DESCRIPTION,
   depsUpgradeOptions: {
     ignoreProjen: false,
     workflowOptions: {
       labels: ['auto-approve'],
     },
   },
-  autoApproveOptions: {
-    allowedUsernames: ['neilkuan', 'hayao-k'],
-  },
-  cdkDependencies: [
-    '@aws-cdk/aws-lambda',
-    '@aws-cdk/assertions',
-    '@aws-cdk/core',
-    '@aws-cdk/aws-events',
-    '@aws-cdk/aws-events-targets',
-  ],
-  python: {
+  keywords: ['aws', 'cdk', 'ecr', 'image-scan-notify'],
+  majorVersion: 1,
+  name: PROJECT_NAME,
+  publishToPypi: {
     distName: PROJECT_NAME,
     module: 'cdk_ecr_image_scan_notify',
   },
-  workflowNodeVersion: '^14.17.0',
+  repository: 'https://github.com/hayao-k/cdk-ecr-image-scan-notify.git',
+  stability: 'experimental',
 });
 
 

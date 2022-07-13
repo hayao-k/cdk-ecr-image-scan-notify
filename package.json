@@ -33,16 +33,16 @@
   },
   "author": {
     "name": "hayao-k",
-    "email": "hayaok333@gmail.com",
+    "email": "30886141+hayao-k@users.noreply.github.com",
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.137.0",
-    "@aws-cdk/assertions": "^1.137.0",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
+    "aws-cdk-lib": "2.31.1",
+    "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -61,25 +61,14 @@
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "@aws-cdk/assertions": "^1.137.0",
-    "@aws-cdk/aws-events": "^1.137.0",
-    "@aws-cdk/aws-events-targets": "^1.137.0",
-    "@aws-cdk/aws-lambda": "^1.137.0",
-    "@aws-cdk/core": "^1.137.0",
-    "constructs": "^3.2.27"
-  },
-  "dependencies": {
-    "@aws-cdk/assertions": "^1.137.0",
-    "@aws-cdk/aws-events": "^1.137.0",
-    "@aws-cdk/aws-events-targets": "^1.137.0",
-    "@aws-cdk/aws-lambda": "^1.137.0",
-    "@aws-cdk/core": "^1.137.0"
+    "aws-cdk-lib": "^2.31.1",
+    "constructs": "^10.0.5"
   },
   "keywords": [
     "aws",
     "cdk",
-    "ecr-image",
-    "scan-notify"
+    "ecr",
+    "image-scan-notify"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
