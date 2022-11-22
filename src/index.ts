@@ -15,6 +15,7 @@ export class EcrImageScanNotify extends Construct {
     const handler = new lambda.Function(this, 'Function', {
       handler: 'lambda_function.lambda_handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../function') ),
+      architecture: lambda.Architecture.ARM_64,
       runtime: lambda.Runtime.PYTHON_3_9,
       timeout: cdk.Duration.minutes(3),
       environment: {
