@@ -62,7 +62,7 @@ def get_params(event):
                 'title': f'''{text_properties['icon']} {repo_name}:{
                     event['detail']['image-tags'][0]}''',
                 'title_link': f'''https://console.aws.amazon.com/ecr/repositories/private/{
-                    event['account']}/{repo_name}/image/{
+                    event['account']}/{repo_name}/_/image/{
                     event['detail']['image-digest']}/scan-results/?region={event['region']}''',
                 'text': f'''*Scan Type:* {scan_type}\n*Scan Status:* {
                     event['detail']['scan-status']}\n*Timestamp:* {complete_at}''',
