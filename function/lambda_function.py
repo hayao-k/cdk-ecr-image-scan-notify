@@ -92,7 +92,7 @@ def get_error_params(event):
                 'title': f''':red_circle: {event['detail']['repository-name']}:{
                     event['detail']['image-tags'][0]}''',
                 'title_link': f'''https://console.aws.amazon.com/ecr/repositories/private/{
-                    event['account']}/{event['detail']['repository-name']}/image/{
+                    event['account']}/{event['detail']['repository-name']}/_/image/{
                     event['detail']['image-digest']}/details/?region={event['region']}''',
                 'text': f'''*Scan Status:* {event['detail']['scan-status']}''',
             }
